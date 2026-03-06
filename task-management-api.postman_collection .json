@@ -1,0 +1,512 @@
+{
+	"info": {
+		"_postman_id": "057a5a27-da63-40f9-83f0-099591b778a5",
+		"name": "task-management-api",
+		"description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "49750367",
+		"_collection_link": "https://priyankachannappahadapad-4212407.postman.co/workspace/Priyanka-C-H's-Workspace~b2719ae5-f1d6-488a-8e10-5bc1e4a070c7/collection/49750367-057a5a27-da63-40f9-83f0-099591b778a5?action=share&source=collection_link&creator=49750367"
+	},
+	"item": [
+		{
+			"name": "http://127.0.0.1:8000/api/task",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcyNzgyOTQ3LCJpYXQiOjE3NzI3NzkzNDcsImp0aSI6IjU4ZWQwMzY5NjEyODQ3Mjc5YWQ3ZGJlN2M1NDBlNTM3IiwidXNlcl9pZCI6IjYifQ.Ti4cqeaPonwAM6VBgWyRdOjrfCZiRF2zx4KVZtK4VPo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"title\": \"Task 6\",\r\n\"description\": \"Complete Django assignment\",\r\n\"status\": \"pending\",\r\n\"priority\": \"high\",\r\n\"due_date\": \"2026-03-10\",\r\n\"assigned_to\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/tasks",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"tasks"
+					]
+				},
+				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"username\": \"Arjun\",\n\"password\": \"Arjun@2002\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"login"
+					]
+				},
+				"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/tasks",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"Arjun\",\r\n    \"email\":\"Arjun@gmail.com\",\r\n    \"password\":\"Arjun@2002\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/register",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/tasks/5/",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcyNzgyOTQ3LCJpYXQiOjE3NzI3NzkzNDcsImp0aSI6IjU4ZWQwMzY5NjEyODQ3Mjc5YWQ3ZGJlN2M1NDBlNTM3IiwidXNlcl9pZCI6IjYifQ.Ti4cqeaPonwAM6VBgWyRdOjrfCZiRF2zx4KVZtK4VPo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"title\": \"Task 6\",\r\n\"description\": \"Complete Django assignment\",\r\n\"status\": \"pending\",\r\n\"priority\": \"high\",\r\n\"due_date\": \"2026-03-10\",\r\n\"assigned_to\": 1\r\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/tasks/5/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"tasks",
+						"5",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/tasks/5/",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcyNzgyOTQ3LCJpYXQiOjE3NzI3NzkzNDcsImp0aSI6IjU4ZWQwMzY5NjEyODQ3Mjc5YWQ3ZGJlN2M1NDBlNTM3IiwidXNlcl9pZCI6IjYifQ.Ti4cqeaPonwAM6VBgWyRdOjrfCZiRF2zx4KVZtK4VPo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"title\": \"Task 6\",\r\n\"description\": \"Complete Django assignment\",\r\n\"status\": \"pending\",\r\n\"priority\": \"high\",\r\n\"due_date\": \"2026-03-10\",\r\n\"assigned_to\": 1\r\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/tasks/5/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"tasks",
+						"5",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/tasks?page=2",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcyNzgyOTQ3LCJpYXQiOjE3NzI3NzkzNDcsImp0aSI6IjU4ZWQwMzY5NjEyODQ3Mjc5YWQ3ZGJlN2M1NDBlNTM3IiwidXNlcl9pZCI6IjYifQ.Ti4cqeaPonwAM6VBgWyRdOjrfCZiRF2zx4KVZtK4VPo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"title\": \"Task 6\",\r\n\"description\": \"Complete Django assignment\",\r\n\"status\": \"pending\",\r\n\"priority\": \"high\",\r\n\"due_date\": \"2026-03-10\",\r\n\"assigned_to\": 1\r\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/tasks?page=2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"tasks"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/my-tasks",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcyNzgyOTQ3LCJpYXQiOjE3NzI3NzkzNDcsImp0aSI6IjU4ZWQwMzY5NjEyODQ3Mjc5YWQ3ZGJlN2M1NDBlNTM3IiwidXNlcl9pZCI6IjYifQ.Ti4cqeaPonwAM6VBgWyRdOjrfCZiRF2zx4KVZtK4VPo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"title\": \"Task 6\",\r\n\"description\": \"Complete Django assignment\",\r\n\"status\": \"pending\",\r\n\"priority\": \"high\",\r\n\"due_date\": \"2026-03-10\",\r\n\"assigned_to\": 1\r\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/assigned-tasks",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"assigned-tasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/assigned-tasks",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcyNzgyOTQ3LCJpYXQiOjE3NzI3NzkzNDcsImp0aSI6IjU4ZWQwMzY5NjEyODQ3Mjc5YWQ3ZGJlN2M1NDBlNTM3IiwidXNlcl9pZCI6IjYifQ.Ti4cqeaPonwAM6VBgWyRdOjrfCZiRF2zx4KVZtK4VPo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"title\": \"Task 6\",\r\n\"description\": \"Complete Django assignment\",\r\n\"status\": \"pending\",\r\n\"priority\": \"high\",\r\n\"due_date\": \"2026-03-10\",\r\n\"assigned_to\": 1\r\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/assigned-tasks",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"assigned-tasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/token/refresh",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcyNzgyOTQ3LCJpYXQiOjE3NzI3NzkzNDcsImp0aSI6IjU4ZWQwMzY5NjEyODQ3Mjc5YWQ3ZGJlN2M1NDBlNTM3IiwidXNlcl9pZCI6IjYifQ.Ti4cqeaPonwAM6VBgWyRdOjrfCZiRF2zx4KVZtK4VPo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"title\": \"Task 6\",\r\n\"description\": \"Complete Django assignment\",\r\n\"status\": \"pending\",\r\n\"priority\": \"high\",\r\n\"due_date\": \"2026-03-10\",\r\n\"assigned_to\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/tasks?status=completed",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"tasks"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "completed"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/tasks?status=completed",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/tasks?status=completed",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"tasks"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "completed"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/tasks?priority=high",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcyNzc5Nzg0LCJpYXQiOjE3NzI3NzYxODUsImp0aSI6Ijk3NmY5ZTM4ZDg3NTQ0ZmJiMzQ4ZGYwNGUxNDUzZWJmIiwidXNlcl9pZCI6IjUifQ.f1LDNVjJg9z-wG3S7TaSuoFcMpZ5hkgLQXrHbUZT_J8",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/tasks?priority=high",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"tasks"
+					],
+					"query": [
+						{
+							"key": "priority",
+							"value": "high"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/tasks?serach=project",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcyNzc5Nzg0LCJpYXQiOjE3NzI3NzYxODUsImp0aSI6Ijk3NmY5ZTM4ZDg3NTQ0ZmJiMzQ4ZGYwNGUxNDUzZWJmIiwidXNlcl9pZCI6IjUifQ.f1LDNVjJg9z-wG3S7TaSuoFcMpZ5hkgLQXrHbUZT_J8",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/tasks?serach=project",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"tasks"
+					],
+					"query": [
+						{
+							"key": "serach",
+							"value": "project"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
